@@ -1,0 +1,8 @@
+{
+  "name": "Copy of  Jini) AX-ONE AI Learning Platform",
+  "description": "A comprehensive one-stop solution for Generative AI learning and education management.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
