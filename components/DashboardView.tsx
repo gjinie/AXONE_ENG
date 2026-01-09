@@ -1,33 +1,33 @@
 // 더미 데이터
-const DUMMY_RESULT: AXDiagnosisResult = {
-  literacy_score: 85,
-  literacy_level: "Advanced",
-  ax_one_level: 'AX Galaxy',
-  mindset_scores: {
-    aiAttitude: 4.5,
-    aiFear: 4.2,
-    aiValue: 4.8,
-    easeOfUse: 4.0,
-    perceivedUtility: 4.7,
-    selfEfficacy: 4.3,
-    aiAcceptance: 4.5,
-    axParticipation: 4.6
-  },
-  feedback: "## 1. Diagnosis Summary\n" +
-      "귀하의 AI 문해력은 매우 높으며, 실무에 즉시 적용 가능한 수준입니다. 특히 분석 및 전략 수립 부문에서 강점을 보입니다.\n" +
-      "\n" +
-      "## 2. Recommended AI Stack\n" +
-      "- **ChatGPT Plus**: 전략적 초안 작성 및 문서 구조화\n" +
-      "- **Claude 3.5 Sonnet**: 복잡한 코드 리뷰 및 논리 분석\n" +
-      "- **Perplexity Pro**: 실시간 데이터 기반 시장 조사 자동화\n" +
-      "- **Midjourney**: 프로젝트를 위한 고품질 비주얼 에셋 생성\n" +
-      "\n" +
-      "## 3. Optional Learning Path\n" +
-      "귀하의 업무 효율을 200% 이상 끌어올리기 위해 'AI 에이전트 구축'과 '프롬프트 체이닝' 기법 습득을 추천드립니다.\n" +
-      "\n" +
-      "## 4. Strategic Advice\n" +
-      "현재의 높은 수용성을 바탕으로 팀 내 AX 변화 관리자(Change Agent)로서의 역할을 수행하시기에 충분한 역량을 갖추고 있습니다."
-};
+// const DUMMY_RESULT: AXDiagnosisResult = {
+//   literacy_score: 85,
+//   literacy_level: "Advanced",
+//   ax_one_level: 'AX Galaxy',
+//   mindset_scores: {
+//     aiAttitude: 4.5,
+//     aiFear: 4.2,
+//     aiValue: 4.8,
+//     easeOfUse: 4.0,
+//     perceivedUtility: 4.7,
+//     selfEfficacy: 4.3,
+//     aiAcceptance: 4.5,
+//     axParticipation: 4.6
+//   },
+//   feedback: "## 1. Diagnosis Summary\n" +
+//       "귀하의 AI 문해력은 매우 높으며, 실무에 즉시 적용 가능한 수준입니다. 특히 분석 및 전략 수립 부문에서 강점을 보입니다.\n" +
+//       "\n" +
+//       "## 2. Recommended AI Stack\n" +
+//       "- **ChatGPT Plus**: 전략적 초안 작성 및 문서 구조화\n" +
+//       "- **Claude 3.5 Sonnet**: 복잡한 코드 리뷰 및 논리 분석\n" +
+//       "- **Perplexity Pro**: 실시간 데이터 기반 시장 조사 자동화\n" +
+//       "- **Midjourney**: 프로젝트를 위한 고품질 비주얼 에셋 생성\n" +
+//       "\n" +
+//       "## 3. Optional Learning Path\n" +
+//       "귀하의 업무 효율을 200% 이상 끌어올리기 위해 'AI 에이전트 구축'과 '프롬프트 체이닝' 기법 습득을 추천드립니다.\n" +
+//       "\n" +
+//       "## 4. Strategic Advice\n" +
+//       "현재의 높은 수용성을 바탕으로 팀 내 AX 변화 관리자(Change Agent)로서의 역할을 수행하시기에 충분한 역량을 갖추고 있습니다."
+// };
 
 import React, { useEffect, useState } from 'react';
 import { BookOpen, Star, Zap, MessageCircle, ChevronRight, Share2, Layout, Play, ChevronLeft, Brain } from 'lucide-react';
@@ -96,12 +96,13 @@ const DashboardView: React.FC<DashboardViewProps> = ({ setView }) => {
       } catch (error) {
         console.error("Failed to parse diagnosis result:", error);
       }
-    } else {
-      console.log("No saved data found. Using dummy data for development.");
-      setResult(DUMMY_RESULT);
-      setAiStack(extractAIStack(DUMMY_RESULT.feedback));
-      setEncouragement(extractStrategicAdvice(DUMMY_RESULT.feedback));
     }
+    //   else { //더미데이터 띄우기
+    //   console.log("No saved data found. Using dummy data for development.");
+    //   setResult(DUMMY_RESULT);
+    //   setAiStack(extractAIStack(DUMMY_RESULT.feedback));
+    //   setEncouragement(extractStrategicAdvice(DUMMY_RESULT.feedback));
+    // }
 
     const initialShuffled: Record<string, VideoContent[]> = {};
     Object.keys(VIDEO_DATA).forEach(key => {
