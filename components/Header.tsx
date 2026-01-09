@@ -38,7 +38,7 @@ const Header: React.FC<HeaderProps> = ({ currentView, setView }) => {
           <img
               src="/logo.svg"
               alt="AXONE Logo"
-              className="h-8 w-auto object-contain block"
+              className="h-10 w-auto object-contain block"
           />
         </div>
 
