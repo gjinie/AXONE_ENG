@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
                   className="h-8 w-auto object-contain block"
               />
           </div>
-        <p className="text-gray-500 text-sm">© 2025 AX-ONE.</p>
+        <p className="text-gray-500 text-sm">© 2026 AX-ONE.</p>
       </div>
     </footer>
   );
