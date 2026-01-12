@@ -1,180 +1,7 @@
 import React, { useState } from 'react';
-import { Share2, Search, ChevronLeft, Copy, Check } from 'lucide-react';
+import { PROMPT_DATA, Prompt, CATEGORY_COLORS } from '../data/promptData'; // 데이터 불러오기
+import { Share2, Search, ChevronLeft, Copy, Check, Filter } from 'lucide-react';
 
-interface Prompt {
-  id: number;
-  category: string;
-  categoryColor: string;
-  title: string;
-  description: string;
-  content: string;
-  tags: string[];
-}
-
-const SAMPLE_PROMPTS: Prompt[] = [
-  {
-    id: 1,
-    category: "Presentation & Education",
-    categoryColor: "text-purple-400 bg-purple-400/10",
-    title: "Presentation Script Generator",
-    description: "Create a natural, persuasive speech script for university or corporate projects from a professional consultant's perspective.",
-    content: "Act as a professional presentation consultant. Draft a full speech script for a team project based on the following info:\n\n[Topic]:\n[Objective]:\n[Audience (Executive/Peers/Judges)]:\n[Duration (min)]:\n[Key Achievements]:\n[Unique Value Proposition]:\n\nConstraints: Use a conversational yet professional tone, ensure smooth transitions (Intro-Body-Conclusion), and include a call-to-action for Q&A.",
-    tags: ["Speech", "PublicSpeaking", "Teamwork"]
-  },
-  {
-    id: 2,
-    category: "Presentation & Education",
-    categoryColor: "text-purple-400 bg-purple-400/10",
-    title: "Slide Deck Architect",
-    description: "Strategic slide structure design inspired by top-tier management consulting frameworks.",
-    content: "Act as a presentation designer from a top-tier consulting firm. Design a logical slide structure for the following:\n\n[Topic]:\n[Audience]:\n[Goal (Inform/Persuade/Report)]:\n[Slide Count]:\n\nOutput Format: Slide # / Title / Core Message / Recommended Visuals.",
-    tags: ["Strategy", "DeckDesign", "Storylining"]
-  },
-  {
-    id: 3,
-    category: "Communication & CRM",
-    categoryColor: "text-emerald-400 bg-emerald-400/10",
-    title: "Brand Voice Review Responder",
-    description: "CX experts craft empathetic and professional responses to customer reviews to build brand loyalty.",
-    content: "Act as a Customer Experience (CX) specialist. Write a response to the customer review below that aligns with our brand image.\n\n[Customer Review]:\n[Review Sentiment (Pos/Neu/Neg)]:\n[Brand Tone (Professional/Friendly/Premium)]:\n[Required Action]:\n\nConstraints: Must show empathy, avoid defensive language, and keep it under 5 sentences.",
-    tags: ["CX", "ReviewManagement", "Branding"]
-  },
-  {
-    id: 4,
-    category: "HR & Talent Management",
-    categoryColor: "text-pink-400 bg-pink-400/10",
-    title: "Career Roadmap Architect",
-    description: "Design a systematic career development plan with actionable growth milestones.",
-    content: "Act as a career coach and performance manager. Create a 12-month career development plan based on the following profile:\n\n[Current Role]:\n[Target Growth/Role]:\n[Current Skillset]:\n[Skill Gaps]:\n\nOutput: Quarterly milestones, recommended learning resources, and KPIs for success.",
-    tags: ["CareerGrowth", "HR", "PersonalBranding"]
-  },
-  {
-    id: 5,
-    category: "Communication & CRM",
-    categoryColor: "text-emerald-400 bg-emerald-400/10",
-    title: "SaaS Onboarding Email Template",
-    description: "Write high-conversion welcome emails that drive immediate user engagement.",
-    content: "Act as a SaaS Growth Marketer. Draft a welcome email for new users based on this info:\n\n[Service Name]:\n[Top 3 Features]:\n[Core Value Proposition]:\n[Primary CTA]:\n\nConstraints: Use a professional yet welcoming tone, include a clear subject line, and focus on the 'First Value' experience.",
-    tags: ["EmailMarketing", "Retention", "Copywriting"]
-  },
-  {
-    id: 6,
-    category: "Business & Strategy",
-    categoryColor: "text-amber-400 bg-amber-400/10",
-    title: "Revenue Model Optimizer",
-    description: "Analyze business revenue streams and identify new monetization opportunities.",
-    content: "Act as a Startup Strategy Consultant. Analyze the following business model and suggest optimizations:\n\n[Business Description]:\n[Target Audience]:\n[Current Revenue Stream]:\n[Market Competition]:\n\nOutput: 1. Current Model Summary, 2. Major Bottlenecks, 3. Three New Revenue Stream Proposals, 4. Implementation Priority.",
-    tags: ["Monetization", "Strategy", "BusinessModel"]
-  },
-  {
-    id: 7,
-    category: "Business & Strategy",
-    categoryColor: "text-amber-400 bg-amber-400/10",
-    title: "Global Market Entry Planner",
-    description: "Comprehensive go-to-market (GTM) strategy for entering new international territories.",
-    content: "Act as a Global Expansion Consultant. Develop a market entry strategy based on:\n\n[Product/Service]:\n[Target Region]:\n[Primary Competitor]:\n[Unique Advantage]:\n\nOutput: GTM Summary, Competitive Positioning, and a 6-month execution roadmap.",
-    tags: ["GTM", "Expansion", "GlobalBusiness"]
-  },
-  {
-    id: 8,
-    category: "Operations & Reporting",
-    categoryColor: "text-blue-400 bg-blue-400/10",
-    title: "SMART Goal Navigator",
-    description: "Transform vague ambitions into Specific, Measurable, Achievable, Relevant, and Time-bound goals.",
-    content: "Act as an OKR/Performance Consultant. Organize the following annual objectives using the SMART framework:\n\n[Entity (Org/Individual)]:\n[Core Direction]:\n[Current Context]:\n\nOutput: SMART Goal breakdown and a quarterly execution plan.",
-    tags: ["OKR", "Productivity", "Planning"]
-  },
-  {
-    id: 9,
-    category: "Content & Marketing",
-    categoryColor: "text-indigo-400 bg-indigo-400/10",
-    title: "Multi-Channel Ad Copywriter",
-    description: "Generate high-performing ad copy tailored for specific social media and search platforms.",
-    content: "Act as a professional Copywriter. Create 3 variations of ad copy based on the following:\n\n[Product]:\n[Target Audience]:\n[Key Benefit]:\n[Platform (FB/IG/LinkedIn/Google)]:\n\nOutput: 3 Headlines and 3 Body copies per platform.",
-    tags: ["AdCopy", "Growth", "Marketing"]
-  },
-  {
-    id: 10,
-    category: "Operations & Reporting",
-    categoryColor: "text-blue-400 bg-blue-400/10",
-    title: "Executive Briefing Summarizer",
-    description: "Condense lengthy documents into high-level executive summaries under 5 bullet points.",
-    content: "Summarize the following document for an executive-level briefing. \n\n[Content]:\n\nConstraints: Maximum 5 bullet points, remove jargon, and focus on data-driven outcomes/actions.",
-    tags: ["ExecutiveSummary", "Reporting", "Efficiency"]
-  },
-  {
-    id: 11,
-    category: "HR & Talent Management",
-    categoryColor: "text-pink-400 bg-pink-400/10",
-    title: "Growth-Oriented Feedback Writer",
-    description: "Draft constructive, performance-based feedback that motivates employees to grow.",
-    content: "Act as an HR Manager. Write a performance feedback summary for an employee based on:\n\n[Role]:\n[Key Achievements]:\n[Strengths]:\n[Areas for Improvement]:\n\nConstraints: Maintain a radical candor approach—be direct but deeply caring. Focus on growth-mindset language.",
-    tags: ["PerformanceReview", "Leadership", "HR"]
-  },
-  {
-    id: 12,
-    category: "Operations & Reporting",
-    categoryColor: "text-blue-400 bg-blue-400/10",
-    title: "Excel/Google Sheets Formula Expert",
-    description: "Instant formula recommendations for complex data analysis tasks.",
-    content: "Act as a Data Analyst. Recommend the best Excel/Google Sheets formula for the following task:\n\n[Desired Action]:\n[Data Structure]:\n\nOutput: Recommended Formula, Syntax Breakdown, and a practical example.",
-    tags: ["Excel", "DataAnalysis", "Automation"]
-  },
-  {
-    id: 13,
-    category: "Communication & CRM",
-    categoryColor: "text-emerald-400 bg-emerald-400/10",
-    title: "Professional English Polisher",
-    description: "Elevate your writing to a professional, native-level business tone.",
-    content: "Rewrite the following text to be more professional, concise, and suitable for a high-stakes business environment:\n\n[Input Text]:\n\nConstraints: Maintain the original meaning but improve vocabulary and flow.",
-    tags: ["BusinessEnglish", "Writing", "Editing"]
-  },
-  {
-    id: 14,
-    category: "Communication & CRM",
-    categoryColor: "text-emerald-400 bg-emerald-400/10",
-    title: "Grammar & Clarity Optimizer",
-    description: "Comprehensive proofreading for flawless and natural sentence structures.",
-    content: "Proofread and optimize the following text for grammar, punctuation, and overall clarity:\n\n[Text]:",
-    tags: ["Proofreading", "Clarity", "Grammar"]
-  },
-  {
-    id: 15,
-    category: "Tech & Development",
-    categoryColor: "text-cyan-400 bg-cyan-400/10",
-    title: "Clean Code Documenter",
-    description: "Automatically generate meaningful comments and documentation for your code snippets.",
-    content: "Act as a Senior Developer. Analyze the code below and add clear, concise documentation/comments that explain the 'Why' behind the logic:\n\n[Code]:",
-    tags: ["Programming", "CleanCode", "Documentation"]
-  },
-  {
-    id: 16,
-    category: "HR & Talent Management",
-    categoryColor: "text-pink-400 bg-pink-400/10",
-    title: "Compelling Job Description Writer",
-    description: "Write job posts that attract top-tier talent by highlighting mission and culture.",
-    content: "Act as a Talent Brand Specialist. Write an engaging job description based on the following:\n\n[Job Title]:\n[Key Responsibilities]:\n[Requirements]:\n[Preferred Skills]:\n\nConstraints: Focus on 'Mission-Driven' language and include a section on 'Why Join Us'.",
-    tags: ["Recruiting", "TalentAcquisition", "Branding"]
-  },
-  {
-    id: 17,
-    category: "HR & Talent Management",
-    categoryColor: "text-pink-400 bg-pink-400/10",
-    title: "Competency-Based Interview Designer",
-    description: "Design a multi-layered interview guide to verify technical and behavioral fit.",
-    content: "Act as a Lead Interviewer. Design a set of interview questions for the following role:\n\n[Role]:\n[Experience Level]:\n\nOutput: Technical Proficiency Qs, Behavioral (STAR method) Qs, and Cultural Fit Qs.",
-    tags: ["Interviewing", "Hiring", "Assessment"]
-  },
-  {
-    id: 18,
-    category: "Communication & CRM",
-    categoryColor: "text-emerald-400 bg-emerald-400/10",
-    title: "Business Email Architect",
-    description: "Generate clear, professional email templates for any corporate scenario.",
-    content: "Act as a Business Communication Expert. Draft a professional email based on:\n\n[Context/Goal]:\n[Recipient]:\n[Desired Tone]:\n\nConstraints: Keep it concise, include a clear subject line, and ensure a professional sign-off.",
-    tags: ["Email", "Communication", "Professionalism"]
-  }
-];
 
 const PromptLabView: React.FC = () => {
   const [selectedPrompt, setSelectedPrompt] = useState<Prompt | null>(null);
@@ -269,7 +96,7 @@ const PromptLabView: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-        {SAMPLE_PROMPTS.filter(p => p.title.toLowerCase().includes(searchQuery.toLowerCase()) || p.category.toLowerCase().includes(searchQuery.toLowerCase())).map(prompt => (
+        {PROMPT_DATA.filter(p => p.title.toLowerCase().includes(searchQuery.toLowerCase()) || p.category.toLowerCase().includes(searchQuery.toLowerCase())).map(prompt => (
           <div 
             key={prompt.id} 
             onClick={() => setSelectedPrompt(prompt)}
@@ -277,7 +104,7 @@ const PromptLabView: React.FC = () => {
           >
             <div className="space-y-5">
               <div className="flex justify-between items-start">
-                <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${prompt.categoryColor}`}>
+                <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${CATEGORY_COLORS[prompt.category] || 'text-gray-400 bg-gray-400/10'}`}>
                   {prompt.category}
                 </span>
               </div>
