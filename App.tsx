@@ -30,7 +30,7 @@ const App: React.FC = () => {
       <main className="flex-grow">
         {renderView()}
       </main>
-      <Footer />
+      <Footer setView={setView} />
     </div>
   );
 };
