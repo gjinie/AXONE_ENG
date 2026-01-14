@@ -36,7 +36,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ setView }) => {
           {/* 컨텐츠가 배경보다 위로 오도록 z-10 유지 */}
           <div className="z-10 max-w-5xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8">
-              <ShieldCheck size={14} className="text-purple-400" />
               <span className="text-xs font-bold tracking-wider text-gray-300">Scientifically Validated AI Transformation</span>
             </div>
 
@@ -85,7 +84,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ setView }) => {
 
                 <div className="p-6 rounded-3xl bg-gradient-to-r from-purple-500/10 to-transparent border-l-4 border-purple-500">
                   <p className="italic text-gray-300 font-medium">
-                    "The first step to true AI transformation is knowing exactly where you stand. AXone provides that precision."
+                    "The first step to true AI transformation is knowing exactly where you stand. AX-ONE provides that precision."
                   </p>
                 </div>
               </div>
@@ -137,7 +136,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ setView }) => {
                     <CheckCircle2 size={24} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-purple-400">AXONE Solution</h4>
+                    <h4 className="font-bold text-purple-400">AX-ONE Solution</h4>
                     <p className="text-gray-400 text-sm">A seamless journey from diagnosis and personalized learning to ready-to-use AI tools.</p>
                   </div>
                 </div>
@@ -164,8 +163,13 @@ const LandingPage: React.FC<LandingPageProps> = ({ setView }) => {
 
                 {/* 4. 컨텐츠: 로켓 아이콘이 애니메이션 위에 오도록 z-10을 설정합니다. */}
                 <div className="absolute inset-0 flex items-center justify-center z-10">
-                  <div className="p-6 glass-effect rounded-2xl border border-white/20 animate-bounce">
-                    <Rocket className="text-purple-500" size={48} />
+                  <div className="animate-bounce">
+                    <img
+                        src="/logo.svg"
+                        alt="AXONE Logo"
+                        className="w-50 h-50 object-contain"
+                    />
+                    {/*<Rocket className="text-purple-500" size={48} />*/}
                   </div>
                 </div>
               </div>
@@ -356,13 +360,17 @@ const LandingPage: React.FC<LandingPageProps> = ({ setView }) => {
             </div>
 
             <div className="relative z-10">
-              <h2 className="text-4xl md:text-6xl font-black mb-6">Ready For<br/><span className="gradient-text">AI Transformation?</span></h2>
+              <h2 className="text-3xl md:text-6xl font-black mb-6">Ready For<br/><span className="gradient-text">AI Transformation?</span></h2>
               <p className="text-gray-400 text-lg mb-12 max-w-xl mx-auto">Turn Generative AI into your most powerful daily asset.</p>
               <button
                   onClick={() => setView('diagnosis')}
                   className="mx-auto px-10 py-5 gradient-bg rounded-2xl font-black text-lg hover:scale-105 transition-all flex items-center justify-center gap-2 shadow-2xl shadow-purple-500/20"
               >
-                Start Your AX Journey <ArrowRight size={22} />
+                {/*모바일 에서만 줄바꿈 적용*/}
+                <span className="text-center">
+                  Start Your<br className="sm:hidden" /> AX Journey
+                </span>
+                <ArrowRight size={22} />
               </button>
             </div>
           </div>
