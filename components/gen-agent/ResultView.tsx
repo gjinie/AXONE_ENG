@@ -88,11 +88,9 @@ export const ResultView: React.FC<ResultViewProps> = ({ result, onReset, onRetry
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           {/* '입력 수정하기'는 문맥상 설정으로 돌아가는 것이므로 Edit Inputs가 적절합니다 */}
           <button onClick={onRetry} className="flex items-center justify-center gap-3 px-10 py-4 bg-white/5 border border-white/10 text-white rounded-2xl font-bold hover:bg-white/10 transition-all">
-              ← Edit Inputs
+              ← Back
           </button>
-          <button onClick={onReset} className="flex items-center justify-center gap-3 px-10 py-4 gradient-bg text-white rounded-2xl font-bold hover:scale-105 transition-all shadow-xl shadow-purple-500/20">
-             <RefreshCw size={18} /> Create New Quiz
-          </button>
+
         </div>
       </div>
     </div>
