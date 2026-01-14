@@ -127,8 +127,11 @@ const DiagnosisResult: React.FC<DiagnosisResultProps> = ({ resultData, onRestart
           logging: false
         });
         const link = document.createElement('a');
+        const today = new Date();
+        const formattedDate = `${String(today.getDate()).padStart(2, '0')}-${String(today.getMonth() + 1).padStart(2, '0')}-${today.getFullYear()}`;
+
         link.href = canvas.toDataURL("image/png");
-        link.download = `AX-ONE_Capability_Report_${new Date().toISOString().slice(0, 10)}.png`;
+        link.download = `AX-ONE_Capability_Report_${formattedDate}.png`;
         link.click();
       } catch (err) {
         console.error(err);
