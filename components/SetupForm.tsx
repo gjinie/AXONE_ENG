@@ -122,13 +122,13 @@ const SetupForm: React.FC<SetupFormProps> = ({ onComplete }) => {
           type="submit"
           disabled={!isValid}
           className={`
-            w-full py-6 rounded-2xl font-black text-xl flex items-center justify-center gap-3 transition-all
+            w-full py-6 rounded-2xl font-black text-sm md:text-xl flex items-center justify-center gap-3 transition-all
             ${isValid 
               ? 'gradient-bg text-white shadow-2xl shadow-purple-500/40 hover:scale-[1.02] active:scale-[0.98]' 
               : 'bg-white/5 text-gray-600 border border-white/5 cursor-not-allowed'}
           `}
         >
-          Begin Diagnosis
+          Begin Assessment
           <ArrowRight size={24} />
         </button>
       </form>

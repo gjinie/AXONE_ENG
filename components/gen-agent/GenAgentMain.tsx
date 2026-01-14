@@ -119,9 +119,8 @@ const GenAgentMain: React.FC = () => {
               <Sparkles className="absolute inset-0 m-auto text-purple-400 w-14 h-14 animate-pulse" />
             </div>
             {/* "AI 지능 가동 중" */}
-            <h2 className="text-3xl font-black mb-5 text-white">AI Analysis in Progress</h2>
-            <p className="text-gray-400 text-lg text-center leading-relaxed">
-              {/* "입력하신 자료를 분석하여 최적의 ...을 설계하고 있습니다..." */}
+            <h2 className="text-xl md:text-3xl font-black mb-5 text-white">AI Analysis in Progress</h2>
+            <p className="text-gray-400 text-base md:text-lg text-center leading-relaxed">
               Analyzing your input to structure the optimal {selectedMode === 'quiz' ? 'quiz set' : 'slide deck'}...
             </p>
           </div>

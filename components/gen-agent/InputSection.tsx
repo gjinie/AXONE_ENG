@@ -136,9 +136,9 @@ export const InputSection: React.FC<InputSectionProps> = ({ onNext, selectedMode
             <button 
               onClick={handleNext} 
               disabled={!hasContent} 
-              className={`w-full py-5 rounded-2xl font-black text-lg flex items-center justify-center gap-3 transition-all ${hasContent ? 'gradient-bg shadow-xl shadow-purple-500/20 hover:scale-[1.02] text-white' : 'bg-white/5 text-gray-600 cursor-not-allowed border border-white/5'}`}
+              className={`w-full py-5 rounded-2xl font-black text-base md:text-lg flex items-center justify-center gap-3 transition-all ${hasContent ? 'gradient-bg shadow-xl shadow-purple-500/20 hover:scale-[1.02] text-white' : 'bg-white/5 text-gray-600 cursor-not-allowed border border-white/5'}`}
             >
-              Start AI Generation <ArrowRight size={20} />
+              Start AI Gen <ArrowRight size={20} />
             </button>
           </div>
         </div>

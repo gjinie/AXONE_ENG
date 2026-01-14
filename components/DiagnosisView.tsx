@@ -165,8 +165,8 @@ const DiagnosisView: React.FC = () => {
               <Loader2 size={80} className="text-purple-500 animate-spin" />
               <Sparkles className="absolute top-0 right-0 text-yellow-400 animate-pulse" size={24} />
             </div>
-            <h2 className="text-4xl font-black mb-6 tracking-tighter">Assembling Your <span className="gradient-text">Intelligence Report</span></h2>
-            <p className="text-gray-400 text-lg max-w-md leading-relaxed">Cross-referencing your potential with our proprietary AX framework for precision insights.</p>
+            <h2 className="text-xl md:text-3xl font-black mb-6 tracking-tighter">Assembling Your <span className="gradient-text">Intelligence Report</span></h2>
+            <p className="text-gray-400 text-base md:text-lg max-w-md leading-relaxed">Cross-referencing your potential with our proprietary AX framework for precision insights.</p>
           </div>
       );
     }
