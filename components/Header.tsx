@@ -32,6 +32,14 @@ const Header: React.FC<HeaderProps> = ({currentView, setView}) => {
         }
     }, [isMobileMenuOpen]);
 
+    useEffect(() => {
+        // currentView가 변경될 때마다 브라우저 스크롤을 최상단으로 이동
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // 'smooth'는 부드럽게, 'auto'는 즉시 이동
+        });
+    }, [currentView]); // currentView가 바뀔 때마다 이 로직이 실행됩니다.
+
     const toggleSolution = (e: React.MouseEvent) => {
         e.preventDefault();
         setIsSolutionOpen(!isSolutionOpen);
