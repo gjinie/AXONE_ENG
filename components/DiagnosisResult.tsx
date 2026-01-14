@@ -360,3 +360,4 @@ const DiagnosisResult: React.FC<DiagnosisResultProps> = ({ resultData, onRestart
         </div>
     );
 };
+export default DiagnosisResult;
