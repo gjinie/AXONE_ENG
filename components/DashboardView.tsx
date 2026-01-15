@@ -52,7 +52,9 @@ const VIDEO_DATA: Record<string, VideoContent[]> = {
     { id: "v4", title: "AI Full Course 2025 | AI Tutorial for Beginners", url: "https://www.youtube.com/watch?v=LGCZ-Fhm48c", thumbnail: "https://img.youtube.com/vi/LGCZ-Fhm48c/mqdefault.jpg" },
     { id: "v5", title: "What is Artificial Intelligence (AI)?", url: "https://www.youtube.com/watch?v=ad79nYk2keg", thumbnail: "https://img.youtube.com/vi/ad79nYk2keg/mqdefault.jpg" },
     { id: "v6", title: "Artificial Intelligence: Crash Course Computer Science #34", url: "https://youtu.be/z-EtmaFJieY?si=9sKoHVdOoN-kWoE8", thumbnail: "https://img.youtube.com/vi/z-EtmaFJieY/mqdefault.jpg" },
-    { id: "v7", title: "How AI could save (not destroy) education", url: "https://youtu.be/hJP5GqnTrNo?si=gU1YNiPOlTC47CaI", thumbnail: "https://img.youtube.com/vi/hJP5GqnTrNo/mqdefault.jpg" }
+    { id: "v7", title: "How AI could save (not destroy) education", url: "https://youtu.be/hJP5GqnTrNo?si=gU1YNiPOlTC47CaI", thumbnail: "https://img.youtube.com/vi/hJP5GqnTrNo/mqdefault.jpg" },
+    {id: "v8", title: "Generative AI Explained In 5 Minutes | What Is GenAI?", url: "https://www.youtube.com/watch?v=NRmAXDWJVnU", thumbnail: "https://img.youtube.com/vi/NRmAXDWJVnU/mqdefault.jpg"},
+    {id: "v9", title: "What is generative AI and how does it work? – The Turing Lectures", url: "https://www.youtube.com/watch?v=_6R7Ym6Vy_I", thumbnail: "https://img.youtube.com/vi/_6R7Ym6Vy_I/mqdefault.jpg"}
   ],
   "Advanced Prompt Engineering": [
     { id: "p1", title: "The ADVANCED 2025 Guide to Prompt Engineering", url: "https://www.youtube.com/watch?v=qBlX6FhDm2E", thumbnail: "https://img.youtube.com/vi/qBlX6FhDm2E/mqdefault.jpg" },
@@ -60,7 +62,10 @@ const VIDEO_DATA: Record<string, VideoContent[]> = {
     { id: "p3", title: "MASTER Prompt Engineering In 10 Minutes - Complete Guide 2025!", url: "https://www.youtube.com/watch?v=X5qdQ0PquD8", thumbnail: "https://img.youtube.com/vi/X5qdQ0PquD8/mqdefault.jpg" },
     { id: "p4", title: "Ultimate Claude Guide 2025 (How to use Claude AI for beginners)", url: "https://www.youtube.com/watch?v=WGbjP8q79i4", thumbnail: "https://img.youtube.com/vi/WGbjP8q79i4/mqdefault.jpg" },
     { id: "p5", title: "99% Of People STILL Don't Know The Basics Of Prompting", url: "https://www.youtube.com/watch?v=T6iMHtEL9FU", thumbnail: "https://img.youtube.com/vi/T6iMHtEL9FU/mqdefault.jpg" },
-    { id: "p6", title: "ChatGPT Prompt Engineering for Developers (Andrew Ng)", url: "https://youtu.be/H4YK_7MAckk?si=PIBdaPXpxPT60bT5", thumbnail: "https://img.youtube.com/vi/H4YK_7MAckk/mqdefault.jpg" }
+    { id: "p6", title: "ChatGPT Prompt Engineering for Developers (Andrew Ng)", url: "https://youtu.be/H4YK_7MAckk?si=PIBdaPXpxPT60bT5", thumbnail: "https://img.youtube.com/vi/H4YK_7MAckk/mqdefault.jpg" },
+    {id: "p7", title: "Google's 9 Hour AI Prompt Engineering Course In 20 Minutes", url: "https://www.youtube.com/watch?v=p09yRj47kNM", thumbnail: "https://img.youtube.com/vi/p09yRj47kNM/mqdefault.jpg"},
+    {id: "p8", title: "How to Write Perfect AI Prompts in 2025 (CRISPE Method)", url: "https://www.youtube.com/watch?v=P08jrZhyNxw", thumbnail: "https://img.youtube.com/vi/P08jrZhyNxw/mqdefault.jpg"},
+    {id: "p9", title: "The ULTIMATE 2025 Guide to Prompt Engineering", url: "https://www.youtube.com/watch?v=bIxbpIwYTXI", thumbnail: "https://img.youtube.com/vi/bIxbpIwYTXI/mqdefault.jpg"}
   ],
   "Deep Dive into AI Technology": [
     { id: "t1", title: "Large Language Models explained briefly", url: "https://www.youtube.com/watch?v=LPZh9BOjkQs", thumbnail: "https://img.youtube.com/vi/LPZh9BOjkQs/mqdefault.jpg" },
@@ -68,7 +73,10 @@ const VIDEO_DATA: Record<string, VideoContent[]> = {
     { id: "t3", title: "RAG Explained For Beginners", url: "https://www.youtube.com/watch?v=_HQ2H_0Ayy0", thumbnail: "https://img.youtube.com/vi/_HQ2H_0Ayy0/mqdefault.jpg" },
     { id: "t4", title: "RAG vs Fine-Tuning vs Prompt Engineering", url: "https://www.youtube.com/watch?v=zYGDpG-pTho", thumbnail: "https://img.youtube.com/vi/zYGDpG-pTho/mqdefault.jpg" },
     { id: "t5", title: "Intro to Large Language Models", url: "https://youtu.be/zjkBMFhNj_g?si=Gd1ElGS09Gut52GF", thumbnail: "https://img.youtube.com/vi/zjkBMFhNj_g/mqdefault.jpg" },
-    { id: "t6", title: "What is a Vector Database?", url: "https://youtu.be/t9IDoenf-lo?si=kjtmbAMHFDWoi0nF", thumbnail: "https://img.youtube.com/vi/t9IDoenf-lo/mqdefault.jpg" }
+    { id: "t6", title: "What is a Vector Database?", url: "https://youtu.be/t9IDoenf-lo?si=kjtmbAMHFDWoi0nF", thumbnail: "https://img.youtube.com/vi/t9IDoenf-lo/mqdefault.jpg" },
+    {id: "t7", title: "How Large Language Models Work (IBM Technology)", url: "https://www.youtube.com/watch?v=5sLYAQS9sWQ", thumbnail: "https://img.youtube.com/vi/5sLYAQS9sWQ/mqdefault.jpg"},
+    {id: "t8", title: "What is Agentic RAG?", url: "https://www.youtube.com/watch?v=0z9_MhcYvcY", thumbnail: "https://img.youtube.com/vi/0z9_MhcYvcY/mqdefault.jpg"},
+    {id: "t9", title: "Learn RAG From Scratch – Python AI Tutorial", url: "https://www.youtube.com/watch?v=sVcwVQRHIc8", thumbnail: "https://img.youtube.com/vi/sVcwVQRHIc8/mqdefault.jpg"}
   ]
 };
 
